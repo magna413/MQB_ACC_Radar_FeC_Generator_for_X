@@ -129,7 +129,10 @@ def swapBuild(vin,vcrn):
 
 def signingFunc(paddedHash):
 
-	print("Select project: \n 1. 5Q0_MRR PQ26")
+	print("1. 5Q0_MRR PQ26")
+	print("Select project [1-4]: ",end="")
+	input()
+
 
 	PQ26_mod=0x8F514A9A0F38BA407DA15F3B4AC0E55FA97C8C3E7C7DED9790541C958767C91BC794723AB6C9B90349DA6B399D46C01CC60E4125037AC76BE5E99BCE66E3BE36C0ADB33CF2F197BA8FEFED150C93BFD61FC35F83BDBD40C8A94B029FB4F9E6B33EA881766629AFAE152422BD7762D915E322CC2149522AA1858D00F8EBFD0537
 	pq26_priv=0x5F8B87115F7B26D5A9163F7CDC8098EA70FDB2D452FE9E650AE2BDB904EFDB67DA62F6D1CF312602313C477BBE2F2ABDD95ED618ACFC84F2994667DEEF427ECE2128D0D049A9AAD249AB2C241CEAF0A8A1796F0779E564D8667F5CBDC5AE51FF9BACA08229F9FF92DFDA5809CC06F4E68475E2830BF30CF308E21BCB9A19A12B
@@ -157,11 +160,11 @@ def main():
 	#for j in i:
 		#print(chr(j))
 
-	with open('SWAP.bin', 'wb',) as file:
+	#with open('SWAP.bin', 'wb',) as file:
 
 		#print((ripemd160WithRSASignature(swapBuild(vinEnter(),vcrnEnter())),).decode)
 
-		file.write(bytearray().join([ripemd160WithRSASignature(swapBuild(vinEnter(),vcrnEnter()))]))
+	print("SWaP is: " + str(hex(int.from_bytes(bytearray().join([ripemd160WithRSASignature(swapBuild(vinEnter(),vcrnEnter()))]),'big')).upper()[2:]))
 
 	#fecEnter()
 	
