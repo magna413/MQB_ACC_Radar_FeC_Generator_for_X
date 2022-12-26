@@ -2,6 +2,7 @@ import sys
 import os
 import time
 
+
 from Crypto.Hash import RIPEMD160
 
 def welcomeScreen():
@@ -152,6 +153,11 @@ def ripemd160WithRSASignature(incompleteSWAP):
 
 
 def main():
+
+	if sys.version_info < (3, 10):
+		sys.exit("Please use Python 3.10 or higher.")
+
+
 	welcomeScreen()
 	#print(vinEnter())
 
