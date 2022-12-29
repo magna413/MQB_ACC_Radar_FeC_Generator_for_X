@@ -24,8 +24,6 @@ def vinEnter():
 	while (True):
 		vinTempArray=bytearray()
 		vinTemp=str(input("Enter Vehicle Identification Number: ").upper())
-
-
 		vinTempArray=bytearray(vinTemp.encode())
 
 		if (len(vinTempArray) == 17) and (vinTemp.isalnum()):
@@ -145,7 +143,7 @@ def ripemd160WithRSASignature(incompleteSWAP):
 	ripemd160hash.update(incompleteSWAP)
 	ripemd160hash=ripemd160hash.digest()
 
-	return b''.join([incompleteSWAP,signingFunc(ripemd160hash)])
+	return b''.join([incompleteSWAP,signingFunc(b''.join([ripmed160RSAsigningPadding,ripemd160hash]))])
 
 
 
