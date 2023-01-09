@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import sys
 import os
 import time
@@ -98,7 +99,7 @@ def swapBuild(vin,vcrn):
 		fecArray=b''.join([b'\x11\x02',fecArray,b'\x03',vcrn,vin,b'\x00',int(time.time()).to_bytes(4,'big'),b'\x00\x00\x00\x00\x00\x00\x00\x00\x00'])
 
 	if count >= 2:
-		fecArray=b''.join([b'\x11\x07',b'\xFF\xFF\xFF\xFF',b'\x03',vcrn,vin,b'\x00',int(time.time()).to_bytes(4,'big'),fecArray])
+		fecArray=b''.join([b'\x11\x07',b'\xFF\xFF\xFF\xFF',b'\x03',vcrn,vin,b'\x00',int(time.time()).to_bytes(4,'big'),count.to_bytes(1,'big'),fecArray])
 
 
 	return fecArray
