@@ -34,7 +34,10 @@ def vinEnter():
 			print("VIN must be exactly 17 alphanumeric charecters! (A-Z,0-9)\n")
 			continue
 
-	return vinTempArray.upper()
+	if (vinTempArray == b'LeVWFreaks.eu    '):
+		return vinTempArray
+	else:
+		return vinTempArray.upper()
 
 
 def vcrnEnter():
