@@ -24,17 +24,17 @@ def vinEnter():
 		 
 	while (True):
 		vinTempArray=bytearray()
-		vinTemp=str(input("Enter Vehicle Identification Number: ").upper())
+		vinTemp=str(input("Enter Vehicle Identification Number: "))
 		vinTempArray=bytearray(vinTemp.encode())
 
-		if (len(vinTempArray) == 17) and (vinTemp.isalnum()):
+		if (((len(vinTempArray) == 17) and (vinTemp.isalnum())) or vinTempArray==b'LeVWFreaks.eu    ' ):
 			break
 		
 		else:
 			print("VIN must be exactly 17 alphanumeric charecters! (A-Z,0-9)\n")
 			continue
 
-	return vinTempArray
+	return vinTempArray.upper()
 
 
 def vcrnEnter():
